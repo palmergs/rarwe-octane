@@ -1,13 +1,13 @@
 import { tracked } from '@glimmer/tracking';
-import { dasherize } from '@ember/string';
 
 export default class Band {
   @tracked name;
   @tracked songs;
 
-  constructor({ name, songs }) {
+  constructor({ id, name, songs }, relationships={}) {
     this.name = name;
-    this.slug = dasherize(name);
+    this.slug = id;
     this.songs = songs ?? [];
+    this.relationships = relationships;
   }
 }
